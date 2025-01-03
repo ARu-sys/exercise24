@@ -1,48 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1113572 - exercise 24</title>
+    <title>Circle Properties</title>
+    <script>
+        function calcCircumference(radius) {
+            const circumference = 2 * Math.PI * radius;
+            console.log(The circumference is ${circumference.toFixed(2)});
+        }
+
+        function calcArea(radius) {
+            const area = Math.PI * radius * radius;
+            console.log(The area is ${area.toFixed(2)});
+        }
+
+        // Call the functions with a sample radius
+        const sampleRadius = 5; // You can change this value
+        calcCircumference(sampleRadius);
+        calcArea(sampleRadius);
+    </script>
 </head>
 <body>
-  <h1>Circle Properties Calculator</h1>
-
-  <label for="radius">Enter the radius of the circle:</label>
-  <input type="number" id="radius" placeholder="Radius" step="any">
-  <button onclick="calculateCircleProperties()">Calculate</button>
-
-  <h2>Results:</h2>
-  <p id="circumferenceResult">The circumference is: </p>
-  <p id="areaResult">The area is: </p>
-
-  <script>
-    // Function to calculate and display the circumference
-    function calcCircumference(radius) {
-      const circumference = 2 * Math.PI * radius;
-      return circumference.toFixed(2);
-    }
-
-    // Function to calculate and display the area
-    function calcArea(radius) {
-      const area = Math.PI * Math.pow(radius, 2);
-      return area.toFixed(2);
-    }
-
-    // Function to handle user input and update results
-    function calculateCircleProperties() {
-      const radius = parseFloat(document.getElementById('radius').value);
-      if (isNaN(radius) || radius <= 0) {
-        alert('Please enter a valid positive number for the radius.');
-        return;
-      }
-
-      const circumference = calcCircumference(radius);
-      const area = calcArea(radius);
-
-      document.getElementById('circumferenceResult').textContent = The circumference is: ${circumference};
-      document.getElementById('areaResult').textContent = The area is: ${area};
-    }
-  </script>
+    <h1>Circle Properties</h1>
+    <p>Open the console to see the calculations for circumference and area of a circle.</p>
+    <p>The calculations are based on a sample radius of 5 (or any value you set in the script).</p>
 </body>
 </html>
