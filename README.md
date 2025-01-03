@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Circle Properties</title>
+    <title>Circle Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
     <script>
-        function calcCircumference(radius) {
+        function calculateCircleProperties() {
+            const radius = parseFloat(document.getElementById("radius").value);
+
+            if (isNaN(radius) || radius <= 0) {
+                alert("Please enter a valid radius greater than 0.");
+                return;
+            }
+
             const circumference = 2 * Math.PI * radius;
-            console.log(The circumference is ${circumference.toFixed(2)});
-        }
-
-        function calcArea(radius) {
             const area = Math.PI * radius * radius;
-            console.log(The area is ${area.toFixed(2)});
-        }
 
-        // Call the functions with a sample radius
-        const sampleRadius = 5; // You can change this value
-        calcCircumference(sampleRadius);
-        calcArea(sampleRadius);
+            document.getElementById("circumference").textContent = The circumference is ${circumference.toFixed(2)};
+            document.getElementById("area").textContent = The area is ${area.toFixed(2)};
+        }
     </script>
 </head>
 <body>
-    <h1>Circle Properties</h1>
-    <p>Open the console to see the calculations for circumference and area of a circle.</p>
-    <p>The calculations are based on a sample radius of 5 (or any value you set in the script).</p>
+    <h1>Circle Calculator</h1>
+    <p>Enter the radius of a circle to calculate its circumference and area.</p>
+    
+    <label for="radius">Radius:</label>
+    <input type="number" id="radius" placeholder="Enter radius" required>
+    <br>
+    <button onclick="calculateCircleProperties()">Calculate</button>
+
+    <h2>Results:</h2>
+    <p id="circumference">The circumference is: </p>
+    <p id="area">The area is: </p>
 </body>
 </html>
